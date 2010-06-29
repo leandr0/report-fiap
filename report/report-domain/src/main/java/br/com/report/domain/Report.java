@@ -23,6 +23,8 @@ public class Report implements Serializable {
 	
 	private Boleto boleto;
 
+	private String filePath;
+	
 	public Cliente getCliente() {
 		return cliente;
 	}
@@ -45,5 +47,13 @@ public class Report implements Serializable {
 
 	public void setBoleto(Boleto boleto) {
 		this.boleto = boleto;
+	}
+
+	public String getFilePath() {
+		return filePath;
+	}
+
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
 	}	
 }
