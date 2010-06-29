@@ -104,6 +104,27 @@
   		<version>1.1.15.B1</version>
 	</dependency>
 				
+    <dependency>
+    	<groupId>br.com</groupId>
+    	<artifactId>report-domain</artifactId>
+    	<version>0.0.1-SNAPSHOT</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+    <dependency>
+    	<groupId>br.com</groupId>
+    	<artifactId>report-business</artifactId>
+    	<version>0.0.1-SNAPSHOT</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+    <dependency>
+    	<groupId>br.com</groupId>
+    	<artifactId>report-jasper</artifactId>
+    	<version>0.0.1-SNAPSHOT</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
@@ -121,7 +142,7 @@
   		<artifactId>jboss-maven-plugin</artifactId>
   		<version>1.4</version>
 		<configuration>
-			<jbossHome>C:\Workspace\Apps\Server\jboss-5.1.0.GA</jbossHome>
+			<jbossHome>C:\Workspace\Apps\Server\jboss-ws-5.1.0.GA</jbossHome>
                <serverName>default</serverName>
                <fileNames>
                   <fileName>target/report-war.war</fileName>
