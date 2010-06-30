@@ -5,11 +5,11 @@ package br.com.report.web;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.servlet.ServletContext;
 
 import br.com.report.business.ReportBusiness;
 import br.com.report.business.ReportBusinessImpl;
@@ -35,10 +35,14 @@ public class ReportManagerBean {
 		ResourceBundle rb = null;
 		try {
 
-			rb = new PropertyResourceBundle(getExternalContext().getResourceAsStream(
+			/*rb = new PropertyResourceBundle(getExternalContext().getResourceAsStream(
 					"/WEB-INF/report.properties"));
 			if(rb.containsKey("reportPath"))
-				setPath(rb.getObject("reportPath").toString());
+				setPath(rb.getObject("reportPath").toString());*/
+			
+			ServletContext context =  (ServletContext) getExternalContext().getContext();
+			
+			setPath(context.getRealPath("/")+"notas-fiscais");
 			
 			carregarNotasFiscais();
 
