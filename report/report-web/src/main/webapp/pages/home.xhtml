@@ -10,8 +10,42 @@
 
 	<ui:composition template="/template/template.xhtml">
 		<ui:define name="body">
-			<h:inputText value="#{report_mb.path}" />
-			<ui:include src="/pages/lista-notas-fiscais.xhtml" />
+			<a4j:outputPanel id="lista-nostas-fiscais">
+	<rich:dataTable width="80%" value="#{report_mb.reports}" var="report">
+				<rich:column>
+					<f:facet name="header">
+						Nome
+					</f:facet>
+					<h:outputText value="#{report.cliente.nome}" />
+				</rich:column>
+				<rich:column>
+					<f:facet name="header">
+						CNPJ
+					</f:facet>
+					<h:outputText value="#{report.cliente.cnpj}" />
+				</rich:column>
+				<rich:column>
+					<f:facet name="header">
+						Codigo
+					</f:facet>
+					<h:outputText value="#{report.cliente.codigo}" />
+				</rich:column>
+				<rich:column>
+					<f:facet name="header">
+	                      	<h:outputText value=" " />
+					</f:facet>
+					<h:commandButton 
+							value="PDF" 
+							action="#{report_mb.carregarNotasFiscais}"
+							image="/resources/images/printer.png"
+							title="PDF">
+						<f:setPropertyActionListener target="#{report_mb.path}" value="#{report.path}" />	
+					</h:commandButton>
+					
+				</rich:column>
+				
+	</rich:dataTable>
+	</a4j:outputPanel>
 		</ui:define>			
 	</ui:composition>
 
