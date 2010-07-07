@@ -41,10 +41,12 @@
 						</rich:dropDownMenu>	
 					</rich:toolBarGroup>
 					<rich:toolBarGroup location="right">
-						<a4j:commandButton value="Página Inicial" 
-							action="menu"
-							image="/resources/images/home.gif"
-							title="Página Inicial"/>
+							<h:commandButton 
+							value="Página Inicial" 
+							action="#{report_mb.carregarNotasFiscais}"
+							image="/resources/images/printer.png"
+							title="Página Inicial"
+							reRender="lista-nostas-fiscais"/>
 					</rich:toolBarGroup>
 					<rich:toolBarGroup location="right">
 						<a4j:commandButton value="Logout" 
