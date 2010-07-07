@@ -27,7 +27,7 @@ public class ReportBusinessImpl implements ReportBusiness {
 		
 		for(File f : file.listFiles()){
 			if (f.getAbsolutePath().endsWith(".xml")) {
-				parseXml.parse(f);
+				result.add(parseXml.parse(f));
 			}
 		}
 		
