@@ -36,22 +36,9 @@
 					<rich:toolBarGroup location="left">
 						<rich:dropDownMenu>
 							<f:facet name="label">
-								<h:outputLabel value="Menu Principal"></h:outputLabel>
+								<h:outputLabel value="Painel de Notas"></h:outputLabel>
 							</f:facet>
 						</rich:dropDownMenu>	
-					</rich:toolBarGroup>
-					<rich:toolBarGroup location="right">
-							<h:commandButton 
-							value="Página Inicial" 
-							action="#{report_mb.carregarNotasFiscais}"
-							image="/resources/images/printer.png"
-							title="Página Inicial"
-							reRender="lista-nostas-fiscais"/>
-					</rich:toolBarGroup>
-					<rich:toolBarGroup location="right">
-						<a4j:commandButton value="Logout" 
-							image="/resources/images/logout.png"
-							title="Logout"/>
 					</rich:toolBarGroup>
 				 </rich:toolBar>
 			</a4j:form>
