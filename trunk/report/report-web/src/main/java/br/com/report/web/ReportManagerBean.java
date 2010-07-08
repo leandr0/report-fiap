@@ -19,7 +19,7 @@ import br.com.report.jasper.GerarRelatorio;
 import br.com.report.jasper.GerarRelatorioImpl;
 
 /**
- * @author User
+ * @author leandro.goncalves
  *
  */
 public class ReportManagerBean {
@@ -59,34 +59,28 @@ public class ReportManagerBean {
 
 	public String carregarNotasFiscais(){
 
-
 		try{
 
 			ServletContext context =  (ServletContext) getExternalContext().getContext();
 
 			String realPath = context.getRealPath("/");
 
-			setPath(realPath+"notas-fiscais");
-
 			gerarRelatorio = new GerarRelatorioImpl();
 
-			ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();    
+			ExternalContext externalContext = getExternalContext();    
 
-			byte[] reportBytes = gerarRelatorio.gerarRelatorio(getPath()+"\\nf_1.xml", realPath+"reports\\");
+			byte[] reportBytes = gerarRelatorio.gerarRelatorio(getPath(), realPath+"reports\\");
 
 			HttpServletResponse response = (HttpServletResponse) externalContext.getResponse();
 			response.setContentType("application/pdf");
 			response.setHeader("Pragma", "public");
 			response.setHeader("Cache-Control", "max-age=0");
-			//response.setHeader("Cache-Control", "no-cache");
 			response.setHeader("Content-Disposition", "attachment;filename=\"report.pdf\"");
 			response.setDateHeader("Expires", 0);
 			OutputStream os = response.getOutputStream();
 			os.write(reportBytes);
 			os.flush();
 			os.close();
-
-			
 
 			FacesContext.getCurrentInstance().responseComplete();
 
