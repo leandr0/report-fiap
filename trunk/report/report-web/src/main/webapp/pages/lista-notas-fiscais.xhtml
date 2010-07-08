@@ -7,42 +7,43 @@
 	xmlns:a4j="http://richfaces.org/a4j"
 	xmlns:rich="http://richfaces.org/rich"
 	xmlns:c="http://java.sun.com/jstl/core">
-	
-	<a4j:outputPanel id="lista-nostas-fiscais">
-	<rich:dataTable width="80%" value="#{report_mb.reports}" var="report">
-				<rich:column>
-					<f:facet name="header">
-						Nome
-					</f:facet>
-					<h:outputText value="#{report.cliente.nome}" />
-				</rich:column>
-				<rich:column>
-					<f:facet name="header">
-						CNPJ
-					</f:facet>
-					<h:outputText value="#{report.cliente.cnpj}" />
-				</rich:column>
-				<rich:column>
-					<f:facet name="header">
-						Codigo
-					</f:facet>
-					<h:outputText value="#{report.cliente.codigo}" />
-				</rich:column>
-				<rich:column>
-					<f:facet name="header">
-	                      	<h:outputText value=" " />
-					</f:facet>
-					<h:commandButton 
-							value="PDF" 
-							action="#{report_mb.carregarNotasFiscais}"
-							image="/resources/images/printer.png"
-							title="PDF">
-						<f:setPropertyActionListener target="#{report_mb.path}" value="#{report.path}" />	
-					</h:commandButton>
-					
-				</rich:column>
-				
-	</rich:dataTable>
-	</a4j:outputPanel>
-
+		<a4j:form >
+				<a4j:outputPanel id="lista-nostas-fiscais" ajaxRendered="true">
+					<rich:dataTable width="80%" value="#{report_mb.reports}" var="report" 
+					id="data-table-notas" rows="4">
+						<rich:column>
+							<f:facet name="header">
+								Nome
+							</f:facet>
+							<h:outputText value="#{report.cliente.nome}" />
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								CNPJ
+							</f:facet>
+							<h:outputText value="#{report.cliente.cnpj}" />
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								Codigo
+							</f:facet>
+							<h:outputText value="#{report.cliente.codigo}" />
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+			                      	<h:outputText value=" " />
+							</f:facet>
+							<h:commandButton 
+									value="PDF" 
+									action="#{report_mb.carregarNotasFiscais}"
+									image="/resources/images/pdf.png"
+									title="PDF">
+								<f:setPropertyActionListener target="#{report_mb.path}" value="#{report.filePath}" />	
+							</h:commandButton>
+							
+						</rich:column>
+					</rich:dataTable>
+					<rich:datascroller for="data-table-notas" style="padding-top: 10px;"/>
+				</a4j:outputPanel>
+			</a4j:form>
 </html>
