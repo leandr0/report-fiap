@@ -1,0 +1,1 @@
+Projeto do módulo de frameworks utilitários.Que consiste em ler um layout de arquivos XML e gerar relatórios no jasper report em formato pdf
